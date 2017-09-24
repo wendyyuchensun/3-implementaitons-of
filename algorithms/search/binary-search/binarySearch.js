@@ -1,17 +1,20 @@
 const binarySearch = (sortedArr, target) => {
-  if (sortedArr.length === 0) return null
+  let first = 0,
+      last = sortedArr.length - 1,
+      middle, middleElm
 
-  const middleIndx = getMiddleIndxFrom(sortedArr),
-        middleElm = sortedArr[middleIndx]
+  while (first <= last) {
+    middle = Math.floor((last - first) / 2 + first)
+    middleElm = sortedArr[middle]
 
-  if (middleElm === target) return middleElm
-
-  if (sortedArr.length > 1) {
-    if (middleElm > target) return binarySearch(sortedArr.slice(0, middleIndx - 1), target)
-    else if (middleElm < target) return binarySearch(sortedArr.slice(middleIndx + 1), target)
+    if (middleElm === target) {
+      return middleElm
+    } else if (middleElm < target) {
+      first = middle + 1
+    } else if (middleElm > target) {
+      last = middle - 1
+    }
   }
 
   return null
 }
-
-const getMiddleIndxFrom = arr => Math.floor(arr.length / 2)
