@@ -2,7 +2,7 @@
 
 void swap (int *a, int *b);
 
-void selection_sort (int arr[], int len) {
+void selectionsort (int arr[], int len) {
   for (int i = 0; i < len; i++) {
     int min = i;
 

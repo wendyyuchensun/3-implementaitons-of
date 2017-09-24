@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int binary_search (int sorted_arr[], int length, int target) {
+int binarysearch (int sorted_arr[], int length, int target) {
   int first = 0;
   int last = length - 1;
 
